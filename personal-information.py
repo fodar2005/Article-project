@@ -28,8 +28,5 @@ if st.button("Submit"):
     st.write(f"**Interests:** {interests}")
     st.write(f"**Level of Professionalism:** {professionalism_level}")
 
-# Run the app
-if __name__ == "__main__":
-    st._is_running_with_streamlit = True
-    from streamlit.cli import main
-    main()
+# To run this Streamlit app, use the following command in your terminal:
+# streamlit run user_info_app.py
