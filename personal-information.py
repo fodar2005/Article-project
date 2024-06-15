@@ -27,6 +27,3 @@ if st.button("Submit"):
     st.write(f"**Job:** {job}")
     st.write(f"**Interests:** {interests}")
     st.write(f"**Level of Professionalism:** {professionalism_level}")
-
-# To run this Streamlit app, use the following command in your terminal:
-# streamlit run user_info_app.py
