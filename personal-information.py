@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 # Set the title of the app
 st.title("User Information Form")
@@ -18,6 +19,21 @@ professionalism_level = st.select_slider(
     options=["Casual", "Semi-formal", "Formal"]
 )
 
+# File uploader for spreadsheet
+uploaded_file = st.file_uploader("Upload a Spreadsheet", type=["csv", "xlsx"])
+
+if uploaded_file is not None:
+    try:
+        if uploaded_file.name.endswith('.csv'):
+            df = pd.read_csv(uploaded_file)
+        elif uploaded_file.name.endswith('.xlsx'):
+            df = pd.read_excel(uploaded_file)
+        
+        st.write("### Uploaded Spreadsheet")
+        st.write(df)
+    except Exception as e:
+        st.error(f"Error: {e}")
+
 # Button to submit the form
 if st.button("Submit"):
     # Display the input information
@@ -27,3 +43,4 @@ if st.button("Submit"):
     st.write(f"**Job:** {job}")
     st.write(f"**Interests:** {interests}")
     st.write(f"**Level of Professionalism:** {professionalism_level}")
+
